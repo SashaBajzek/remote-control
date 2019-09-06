@@ -5,7 +5,7 @@ export default class RenderButtons extends Component {
   //render a single button
   handleButton = ({ aButton, style, hotKeyStyle }) => {
     const { onClick, user, controls_id, socket } = this.props;
-    const hotKeyRender = this.handleButtonStyle(aButton);
+    let hotKeyRender = this.handleButtonStyle(aButton);
     if (aButton && aButton.hot_key && aButton.key)
       hotKeyRender = "robtn robtn-hot-key";
     return (
@@ -45,7 +45,7 @@ export default class RenderButtons extends Component {
   handleButtons = () => {
     const {
       controls,
-      hotKeyStyle,
+      // hotKeyStyle,
       renderPresses,
       renderCurrentKey
     } = this.props;

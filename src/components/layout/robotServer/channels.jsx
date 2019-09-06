@@ -10,7 +10,7 @@ import EditChannel from "./modals/editChannel";
 import DisplayRobot from "./displayRobot";
 import DisplayServerDetails from "./displayServerDetails";
 import socket from "../../socket";
-import { Link, Route, Switch, Redirect } from "react-router-dom";
+import { Link, Route, Switch } from "react-router-dom";
 import Channel from "./channel";
 import defaultImages from "../../../imgs/placeholders";
 import "./channels.css";
@@ -117,7 +117,7 @@ export default class Channels extends Component {
   };
 
   channelListener = () => {
-    const { selectedServer } = this.props;
+    // const { selectedServer } = this.props;
 
     if (socket && this._isMounted) {
       socket.on(SEND_ROBOT_SERVER_INFO, data => {

@@ -323,7 +323,11 @@ export default class RobotInterface extends Component {
           <div className="robot-container">
             <div className="robot-display-container">
               <canvas className="video-canvas" ref="video-canvas" />
-              <img className="video-poster" src={defaultImages.videoImg} />
+              <img
+                className="video-poster"
+                src={defaultImages.videoImg}
+                alt="video poster"
+              />
               <div className="display-controls-container">
                 <VolumeControl
                   player={this.audioPlayer}
