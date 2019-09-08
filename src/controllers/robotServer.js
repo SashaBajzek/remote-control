@@ -50,15 +50,17 @@ module.exports.deleteRobotServer = async (server_id, user_id) => {
   console.log("DELTING SERVER: ", remove);
 };
 
-module.exports.updateListing = async (server, user_id) => {
-  // console.log("////CHANGE LISTING CHECK 2 //////", server, user_id);
+module.exports.updateSettings = async (server, user_id) => {
   const {
     getRobotServer,
     updateRobotServerSettings
   } = require("../models/robotServer");
   let getServer = await getRobotServer(server.server_id);
   if (getServer.owner_id === user_id) {
-    getServer.settings.unlist = server.settings.unlist;
+    if (server.settings.hasOwnProperty("private"))
+      getServer.settings.private = server.settings.private;
+    if (server.settings.hasOwnProperty("unlist"))
+      getServer.settings.unlist = server.settings.unlist;
     const updateSettings = await updateRobotServerSettings(
       getServer.server_id,
       getServer.settings
@@ -73,7 +75,12 @@ module.exports.getPublicServers = async () => {
   let getServers = await getRobotServers();
   let list = [];
   getServers.forEach(server => {
-    if (server.settings.unlist === true) {
+    if (server.settings.unlist === true || server.settings.private === true) {
+      // console.log(
+      //   "THIS SERVER IS UNLISTED AND OR PRIVATE! ",
+      //   server.server_name,
+      //   server.settings
+      // );
       //do nothing
     } else {
       list.push(server);
@@ -82,9 +89,24 @@ module.exports.getPublicServers = async () => {
   return list;
 };
 
-module.exports.getServerByName = async name => {
+module.exports.getServerByName = async (name, user) => {
   const { getRobotServerFromName } = require("../models/robotServer");
   const getServer = await getRobotServerFromName(name);
+  if (getServer.settings.private === true)
+    return checkMembership(getServer, user);
   if (getServer) return getServer;
   return err("This server doesn't exist");
+};
+
+const checkMembership = async (server, user) => {
+  // console.log("CHECKING MEMBERSHIP FOR PRIVATE SERVER!!! ");
+  const { getMember } = require("../models/serverMembers");
+  // console.log(user);
+  const check = await getMember({
+    user_id: user.id,
+    server_id: server.server_id
+  });
+  // console.log(check);
+  if (check.status.member === true) return server;
+  return err("You are not a member of this server.");
 };

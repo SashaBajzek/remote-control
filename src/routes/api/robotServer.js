@@ -9,6 +9,7 @@ const {
 const { checkTypes } = require("../../models/user");
 const auth = require("../auth");
 const Joi = require("joi");
+const { jsonError } = require("../../modules/logging");
 
 //LIST ACTIVE SERVERS
 router.get("/list", async (req, res) => {
@@ -132,26 +133,21 @@ router.get("/invites", auth({ user: true }), async (req, res) => {
   }
 });
 
-router.post("/settings/listing", auth({ user: true }), async (req, res) => {
-  const { updateListing } = require("../../controllers/robotServer");
-
+router.post("/settings/update", auth({ user: true }), async (req, res) => {
+  // return res.json(req.body);
+  const { updateSettings } = require("../../controllers/robotServer");
   if (req.body.server.settings) {
-    // console.log("INPUT CHECK: ", req.body.server);
-    const update = await updateListing(req.body.server, req.user.id);
-
+    const update = await updateSettings(req.body.server, req.user.id);
     if (update) res.send(update);
     return;
   }
-  res.send({
-    status: "Error!",
-    error: "There was a problem updating server listing"
-  });
+  res.send(jsonError("Unable to update server settings"));
 });
 
-router.post("/get-server", async (req, res) => {
+router.post("/get-server", auth({ user: true }), async (req, res) => {
   const { getServerByName } = require("../../controllers/robotServer");
   if (req.body.server_name) {
-    const getServer = await getServerByName(req.body.server_name);
+    const getServer = await getServerByName(req.body.server_name, req.user);
     if (getServer) res.send(getServer);
     return;
   }

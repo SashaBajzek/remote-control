@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom";
 import Channels from "../../layout/robotServer/channels";
 import axios from "axios";
 import { findServer } from "../../../config/clientSettings";
+import "../../layout/frontPage/frontPage.css";
 
 export default class ServerPage extends Component {
   constructor(props) {
@@ -59,9 +60,18 @@ export default class ServerPage extends Component {
   };
 
   handleFindServer = async server_name => {
+    const token = localStorage.getItem("token");
     let found = null;
     await axios
-      .post(findServer, { server_name: server_name })
+      .post(
+        findServer,
+        {
+          server_name: server_name
+        },
+        {
+          headers: { authorization: `Bearer ${token}` }
+        }
+      )
       .then(response => {
         console.log(response);
         found = response.data;
@@ -85,9 +95,23 @@ export default class ServerPage extends Component {
         onCloseModal={this.props.onCloseModal}
         showMobileNav={this.props.showMobileNav}
         mobileState={this.props.mobileState}
+        setServer={this.props.setServer}
       />
     ) : (
-      <React.Fragment />
+      <React.Fragment>
+        {" "}
+        <div className="front-page-container">
+          <div className="front-page-text">
+            <div>No Server Selected.</div>
+            <br />
+            <div>This could be because: </div>
+            <div>This server does not exist </div>
+            <div>This server has been set to private </div>
+            <div>You have been kicked, or banned </div>
+            <div>or... something broke.</div>
+          </div>
+        </div>
+      </React.Fragment>
     );
   };
 
