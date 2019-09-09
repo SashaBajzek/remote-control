@@ -1,7 +1,6 @@
 import React from "react";
-import Form from "../common/form";
-import Toggle from "../common/toggle";
 import axios from "axios";
+import { Form, Toggle } from "../common";
 import { updateSettings } from "../../config/clientSettings";
 
 export default class EditServerForm extends Form {

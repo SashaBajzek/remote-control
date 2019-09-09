@@ -1,6 +1,7 @@
-import Form from "../../common/form";
 import React from "react";
 import Joi from "joi-browser";
+
+import { Form } from "../../common";
 import "./chat.css";
 import { MESSAGE_SENT } from "../../../events/definitions";
 import { defaultRate } from "../../../config/clientSettings";

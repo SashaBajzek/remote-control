@@ -1,7 +1,7 @@
 import React from "react";
-import Form from "../../../common/form";
-// import Joi from "joi-browser";
 import axios from "axios";
+
+import { Form } from "../../../common";
 import { deleteChannel } from "../../../../config/clientSettings";
 
 export default class EditChannelForm extends Form {

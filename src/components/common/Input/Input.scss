@@ -1,3 +1,5 @@
+@import "../../../styles/variables.scss";
+
 .Input {
   display: flex;
   flex-direction: column;
@@ -13,10 +15,10 @@
   }
 
   &--chat {
-    background-color: rgb(90, 68, 124);
+    background-color: $color-purple;
     border: 0px;
     border-radius: 10px 0px 0px 10px;
-    color: white;
+    color: $color-white;
     display: flex;
     flex-direction: row;
     font-size: 12px;
@@ -36,7 +38,7 @@
   }
 
   &__error {
-    background-color: red;
+    background-color: $color-red;
     display: flex;
     flex-direction: column;
     font-size: 12px;

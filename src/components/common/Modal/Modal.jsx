@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../overlay.css";
+import "./Modal.scss";
 
 /*
   Modal is rendered in layout.jsx
@@ -23,23 +23,23 @@ export default class Modal extends Component {
   render() {
     const { show, close } = this.props;
     return (
-      <div className="modal-outer">
+      <div className="Modal">
         <div
-          className="modal-wrapper"
+          className="Modal__wrapper"
           style={{
             opacity: show ? "1" : "0"
           }}
         >
-          <div className="modal-header">
+          <div className="Modal__header">
             <h3>{this.displayContent("header")}</h3>
-            <span className="close-modal-btn" onClick={close}>
+            <span className="Modal__button--close" onClick={close}>
               ×
             </span>
           </div>
-          <div ref="container" className="modal-body modal-scroll">
+          <div ref="container" className="Modal__body">
             {this.displayContent("body")}
           </div>
-          <div className="modal-footer">{this.displayContent("footer")}</div>
+          <div className="Modal__footer">{this.displayContent("footer")}</div>
         </div>
       </div>
     );

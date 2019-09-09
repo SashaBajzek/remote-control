@@ -2,7 +2,7 @@ import React from "react";
 import "../../styles/common.css";
 import Joi from "joi-browser";
 import { getButtons, makeButtons } from "../../config/clientSettings";
-import Form from "../common/form";
+import { Form } from "../common";
 import "./editButtons.css";
 
 import axios from "axios";

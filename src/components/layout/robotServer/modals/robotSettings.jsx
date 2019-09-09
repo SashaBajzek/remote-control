@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import "../../../../styles/common.css";
-import Input from "../../../common/input";
-import Toggle from "../../../common/toggle";
+import axios from "axios";
+
+import { Input, Toggle } from "../../../common";
 import { deleteRobot, robotAPIKey } from "../../../../config/clientSettings";
 
-import axios from "axios";
+import "../../../../styles/common.css";
 
 export default class RobotSettings extends Component {
   constructor(props) {

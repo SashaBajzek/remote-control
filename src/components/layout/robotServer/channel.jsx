@@ -1,10 +1,12 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
+
 import RobotInterface from "../robot/robotInteface";
 import Chat from "../chat/chat";
 import socket from "../../socket";
-import { Redirect } from "react-router-dom";
-import "../../common/scroll.css";
 import { WindowDimensionsCtx } from "../../providers/windowDimensionProvider";
+
+import "../../common/scroll.css";
 
 export default class Channel extends Component {
   constructor(props) {

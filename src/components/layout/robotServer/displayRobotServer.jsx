@@ -1,7 +1,9 @@
 import React from "react";
-import "./robotServer.css";
-import defaultImages from "../../../imgs/placeholders";
 import { Link } from "react-router-dom";
+
+import defaultImages from "../../../imgs/placeholders";
+
+import "./robotServer.css";
 
 const DisplayRobotServer = ({
   serverName,

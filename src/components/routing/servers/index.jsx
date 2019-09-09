@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import axios from "axios";
 import { Route, Redirect, Switch } from "react-router-dom";
-import "./index.css";
+
 import RobotServer from "../../layout/robotServer/robotServer";
 import NavBar from "../../layout/nav/navBar";
 import socket from "../../socket";
@@ -9,11 +10,12 @@ import {
   listRobotServers,
   listFollowedServers
 } from "../../../config/clientSettings";
-import axios from "axios";
-import Modal from "../../common/modal";
-import "../../common/overlay.css";
+import { Modal } from "../../common";
 import FrontPage from "../../layout/frontPage/frontPage";
 import BrowseServers from "../../layout/browseServers/browseServers";
+
+import "./index.css";
+import "../../common/overlay.css";
 
 export default class ServersPage extends Component {
   constructor(props) {

@@ -1,13 +1,16 @@
 import React from "react";
-import "../../../common/overlay.css";
-import "../../../../styles/common.css";
-import Form from "../../../common/form";
-import "../robotServer.css";
-import Joi from "joi-browser";
 import axios from "axios";
+import Joi from "joi-browser";
+import { Redirect } from "react-router-dom";
+
+import { Form } from "../../../common";
+
 import { apiUrl, addServer } from "../../../../config/clientSettings";
 import defaultImages from "../../../../imgs/placeholders";
-import { Redirect } from "react-router-dom";
+
+import "../../../common/overlay.css";
+import "../../../../styles/common.css";
+import "../robotServer.css";
 
 export default class AddServer extends React.Component {
   state = {};

@@ -1,7 +1,8 @@
 import React from "react";
-import Form from "../../../common/form";
-import Joi from "joi-browser";
 import axios from "axios";
+import Joi from "joi-browser";
+
+import { Form } from "../../../common";
 import { apiUrl, addChannel } from "../../../../config/clientSettings";
 
 export default class AddChannelForm extends Form {

@@ -1,10 +1,12 @@
 import React, { Component } from "react";
+
 import DisplayRobotServer from "./displayRobotServer";
-import "./robotServer.css";
 import AddServer from "./modals/addServer";
 import Browse from "../../routing/servers/browse";
 import sortServers from "./sortServers";
 import GetLayout from "../../modules/getLayout";
+
+import "./robotServer.css";
 
 export default class RobotServer extends Component {
   displayServers = servers => {

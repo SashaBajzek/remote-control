@@ -1,0 +1,16 @@
+// Base colors
+$color-purple: rgb(90, 68, 124);
+$color-red: red;
+$color-white: white;
+
+// Input / Form variables
+// $input-border-color: $gray-light;
+// $input-label-color: $gray;
+// $input-error-color: $color-danger;
+
+// make variables available to JS
+:export {
+  colorPurple: $color-purple;
+  colorRed: $color-red;
+  colorWhite: $color-white;
+}

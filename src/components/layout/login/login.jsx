@@ -1,6 +1,6 @@
 import React from "react";
 import "../../../styles/common.css";
-import Form from "../../common/form";
+import { Form } from "../../common";
 import Joi from "joi-browser";
 import "./login.css";
 import axios from "axios";

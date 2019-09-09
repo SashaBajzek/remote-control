@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Link, Route, Switch } from "react-router-dom";
+
 import {
   SEND_ROBOT_SERVER_INFO,
   ACTIVE_USERS_UPDATED,
@@ -10,11 +12,11 @@ import EditChannel from "./modals/editChannel";
 import DisplayRobot from "./displayRobot";
 import DisplayServerDetails from "./displayServerDetails";
 import socket from "../../socket";
-import { Link, Route, Switch } from "react-router-dom";
 import Channel from "./channel";
 import defaultImages from "../../../imgs/placeholders";
-import "./channels.css";
 import GetLayout from "../../modules/getLayout";
+
+import "./channels.css";
 
 export default class Channels extends Component {
   constructor(props) {

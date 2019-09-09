@@ -1,10 +1,12 @@
 import React, { Component } from "react";
-import "./robotServer.css";
+
 import { GET_ROBOTS } from "../../../events/definitions";
 import list_robot from "../../../icons/singleIcons/list_robot.svg";
 import AddRobotForm from "./modals/addRobotForm";
 import RobotSettings from "./modals/robotSettings";
 import socket from "../../socket";
+
+import "./robotServer.css";
 
 export default class DisplayRobot extends Component {
   state = {
