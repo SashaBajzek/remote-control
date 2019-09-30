@@ -13,8 +13,6 @@
   padding: 8px;
   padding-top: 12px;
   padding-bottom: 12px;
-  /* background-color: rgb(32, 32, 48); */
-  /* background-color: red; */
   flex-direction: column;
   width: 144px;
   align-items: center;
@@ -30,7 +28,6 @@
 .browse-display-robot-server {
   font-size: 14px;
   font-weight: bold;
-  /* color: rgb(176, 115, 211); */
   color: white;
   margin-top: 4px;
 }

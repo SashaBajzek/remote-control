@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { Form, Toggle } from "../common";
 import { updateSettings } from "../../config/clientSettings";
+import "./editServerForm.scss";
 
 export default class EditServerForm extends Form {
   state = {
@@ -90,6 +91,7 @@ export default class EditServerForm extends Form {
             <Toggle
               toggle={this.state.settings.unlist}
               label={"Unlist this server? "}
+              name="unlist_server_toggle"
               onClick={this.handleUnlistToggle}
               critical={true}
             />
@@ -104,6 +106,7 @@ export default class EditServerForm extends Form {
             <Toggle
               toggle={this.state.settings.private}
               label={"Set server to private? "}
+              name="make_server_private_toggle"
               onClick={this.handlePrivateToggle}
               critical={true}
             />

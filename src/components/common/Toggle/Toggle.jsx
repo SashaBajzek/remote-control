@@ -1,7 +1,8 @@
 import React from "react";
-import "../../../styles/common.css";
 
-const Toggle = ({ toggle, label, onClick, critical }) => {
+import "./Toggle.scss";
+
+const Toggle = ({ critical, label, name, onClick, toggle }) => {
   const toggleOn = () => {
     return (
       <div className={handleType()}>
@@ -24,13 +25,35 @@ const Toggle = ({ toggle, label, onClick, critical }) => {
   };
 
   return (
-    <div className="form-group">
-      <div className="toggle-container">
-        <div className="toggle-label">{label}</div>
-        <div onClick={toggle => onClick(!toggle)}>
-          {toggle ? toggleOn() : toggleOff()}
-        </div>
-      </div>
+    // <div className="Toggle">
+    //   <label className="toggle-label" for="toggle">
+    //     {label}
+    //   </label>
+    //   <input
+    //     name="toggle"
+    //     type="checkbox"
+    //     checked={toggle}
+    //     onClick={toggle => onClick(!toggle)}
+    //   />
+    //   <span>{toggle ? "ON" : "OFF"}</span>
+    //   <div className="toggle-pip-on" />
+    // </div>
+    <div className="Toggle">
+      <input
+        checked={toggle}
+        className="Toggle_input"
+        id={name}
+        type="checkbox"
+        onClick={toggle => onClick(!toggle)}
+      />
+      <label for={name}>
+        <div
+          className="Toggle__switch"
+          data-checked="On"
+          data-unchecked="Off"
+        ></div>
+        <div className="Toggle__label-text">{label}</div>
+      </label>
     </div>
   );
 };

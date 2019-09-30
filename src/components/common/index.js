@@ -1,4 +1,3 @@
-export * from "./Counter";
 export * from "./Form";
 export * from "./Icon";
 export * from "./Input";

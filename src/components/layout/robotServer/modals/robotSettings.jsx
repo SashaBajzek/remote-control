@@ -5,6 +5,7 @@ import { Input, Toggle } from "../../../common";
 import { deleteRobot, robotAPIKey } from "../../../../config/clientSettings";
 
 import "../../../../styles/common.css";
+import "./robotSettings.scss";
 
 export default class RobotSettings extends Component {
   constructor(props) {
@@ -140,6 +141,7 @@ export default class RobotSettings extends Component {
               copy to clipboard
             </div>
             <Toggle
+              name="api_key_toggle"
               toggle={this.state.apiToggle}
               label={"Show API Key"}
               onClick={this.handleToggle}
